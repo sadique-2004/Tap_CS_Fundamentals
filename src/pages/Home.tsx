@@ -105,7 +105,7 @@ const Home = () => {
                 {/* Questions Per Topic */}
                 <div className="text-center">
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                    <span className="text-2xl font-bold text-primary">10+</span>
+                    <span className="text-2xl font-bold text-primary">15+</span>
                   </div>
                   <h3 className="mb-2 font-semibold text-foreground text-gray-800">
                     Questions Per Topic

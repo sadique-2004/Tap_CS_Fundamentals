@@ -454,7 +454,7 @@ const OperatingSystem = () => {
                 Operating System
               </h1>
               <p className="text-lg text-purple-50 font-semibold">
-                Easy & Quick OS Guide for Students – Prepare for Interviews!
+                Master OS fundamentals and confidently tackle any interview
               </p>
             </div>
           </div>
