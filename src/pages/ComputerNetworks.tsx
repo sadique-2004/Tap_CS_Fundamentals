@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 
+
 const ComputerNetworks = () => {
   const questions = [
     {
@@ -74,7 +75,7 @@ const ComputerNetworks = () => {
       
       <main className="flex-1">
         {/* Header */}
-        <section className="bg-gradient-to-br from-indigo-500 to-indigo-600 py-16 text-white">
+        <section className="bg-[#60A5FA] py-16 text-white">
           <div className="container px-4">
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm">
@@ -89,6 +90,8 @@ const ComputerNetworks = () => {
             </div>
           </div>
         </section>
+  
+
 
         {/* Questions */}
         <section className="py-16">
@@ -127,7 +130,7 @@ const ComputerNetworks = () => {
               </Link>
               <Link to="/operating-system">
                 <Button size="lg" className="gap-2">
-                  Next: Operating System
+                  Next: OS
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>

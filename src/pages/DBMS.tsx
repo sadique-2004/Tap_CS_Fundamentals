@@ -74,7 +74,7 @@ const DBMS = () => {
       
       <main className="flex-1">
         {/* Header */}
-        <section className="bg-gradient-to-br from-blue-500 to-blue-600 py-16 text-white">
+        <section className="bg-[#7C3AED] py-16 text-white">
           <div className="container px-4">
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm">
@@ -127,7 +127,7 @@ const DBMS = () => {
               </Link>
               <Link to="/computer-networks">
                 <Button size="lg" className="gap-2">
-                  Next: Computer Networks
+                  Next: CN
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>

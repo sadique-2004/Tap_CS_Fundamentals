@@ -5,76 +5,184 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 
 const OperatingSystem = () => {
-  const questions = [
+  const osContent = [
     {
-      q: "What is an Operating System and its functions?",
-      a: "An OS is system software that manages hardware and software resources. Key functions include: process management, memory management, file system management, device management, security, and providing user interface. It acts as an intermediary between users and hardware."
+      q: "1. OS Introduction",
+      a: (
+        <p>
+          An <strong>Operating System (OS)</strong> is an <strong>interface between user and hardware</strong>. 
+          It manages processes, CPU, memory, files, and resources. 
+          Its main goal is to provide an environment where programs can run <em>efficiently and conveniently</em>.
+        </p>
+      ),
     },
     {
-      q: "What is the difference between Process and Thread?",
-      a: "A Process is an independent program execution with its own memory space. A Thread is a lightweight subprocess within a process, sharing the same memory. Threads are faster to create and switch between, while processes provide better isolation and security."
+      q: "2. Types of Operating Systems",
+      a: (
+        <ul className="list-disc ml-6 text-muted-foreground">
+          <li>
+            <strong>Batch OS:</strong> Executes jobs one after another; CPU is assigned after previous job finishes.
+          </li>
+          <li>
+            <strong>Multiprogramming OS:</strong> Keeps multiple jobs in memory; CPU switches when one process waits for I/O.
+          </li>
+          <li>
+            <strong>Multitasking OS:</strong> Quickly switches CPU between tasks; allows user interaction with multiple programs.
+          </li>
+          <li>
+            <strong>Time-Sharing OS:</strong> Interacts with users via input devices (keyboard); provides prompt output.
+          </li>
+          <li>
+            <strong>Real-Time OS:</strong> Designed to complete tasks within strict deadlines; used in dedicated systems.
+          </li>
+        </ul>
+      ),
     },
     {
-      q: "Explain different CPU Scheduling Algorithms.",
-      a: "FCFS (First Come First Serve) is simple but may cause waiting. SJF (Shortest Job First) minimizes wait time. Round Robin uses time quantum for fairness. Priority scheduling assigns importance levels. Multilevel Queue handles different process types efficiently."
+      q: "3.What is Process ?",
+      a: (
+        <p>
+          A <strong>process</strong> is a program under execution. 
+          The <strong>Program Counter (PC)</strong> indicates the next instruction address.
+          Each process is represented by a <strong>Process Control Block (PCB)</strong>.
+        </p>
+      ),
     },
     {
-      q: "What is Deadlock and its necessary conditions?",
-      a: "Deadlock occurs when processes wait indefinitely for resources. Four necessary conditions: Mutual Exclusion (exclusive resource access), Hold and Wait (holding while requesting), No Preemption (can't forcibly take resources), and Circular Wait (circular chain of waiting)."
+      q: "4. Process Scheduling",
+      a: (
+        <ul className="list-disc ml-6 text-muted-foreground">
+          <li><strong>Arrival Time:</strong> Time process enters the ready queue.</li>
+          <li><strong>Completion Time:</strong> Time process finishes execution.</li>
+          <li><strong>Burst Time:</strong> CPU time required by a process.</li>
+          <li>
+            <strong>Turn Around Time (TAT):</strong> Completion Time − Arrival Time
+          </li>
+          <li>
+            <strong>Waiting Time (WT):</strong> Turn Around Time − Burst Time
+          </li>
+        </ul>
+      ),
     },
     {
-      q: "What are Deadlock Prevention and Avoidance strategies?",
-      a: "Prevention eliminates one of the four deadlock conditions. Avoidance uses algorithms like Banker's Algorithm to ensure safe states before allocation. Detection monitors for deadlock cycles. Recovery involves process termination or resource preemption to break the deadlock."
+      q: "5. Thread (Important)",
+      a: (
+        <p>
+          A <strong>thread</strong> is a lightweight process; a process can have multiple threads.
+          Threads share <strong>code, data, files, and signals</strong> but have their own <strong>PC, registers, and stack</strong>.
+          Use <code>fork()</code> to create child processes. Types: <strong>User Threads</strong> and <strong>Kernel Threads</strong>.
+        </p>
+      ),
     },
     {
-      q: "What is Virtual Memory and Paging?",
-      a: "Virtual Memory extends RAM using disk space, allowing larger programs. Paging divides memory into fixed-size pages, enabling non-contiguous allocation. Benefits include isolation, larger address space, and efficient memory use. Page faults occur when accessing pages not in RAM."
+      q: "6. Scheduling Algorithms",
+      a: (
+        <ul className="list-disc ml-6 text-muted-foreground">
+          <li><strong>FCFS:</strong> First Come First Serve.</li>
+          <li><strong>SJF:</strong> Shortest Job First.</li>
+          <li><strong>SRTF:</strong> Shortest Remaining Time First (preemptive SJF).</li>
+          <li><strong>Round Robin (RR):</strong> Fixed time quantum cyclic scheduling.</li>
+          <li><strong>Priority Scheduling (Non Preemptive):</strong> Based on process priority.</li>
+          <li><strong>HRRN:</strong> Highest Response Ratio Next.</li>
+          <li><strong>MLQ & MLFQ:</strong> Multilevel Queue / Feedback Queue scheduling.</li>
+        </ul>
+      ),
     },
     {
-      q: "Explain Page Replacement Algorithms.",
-      a: "FIFO replaces oldest page (may cause Belady's anomaly). LRU replaces least recently used (optimal but complex). Optimal replaces page not needed longest (theoretical). Clock algorithm approximates LRU efficiently. Each balances performance and implementation complexity."
+      q: "7. Deadlocks (Important)",
+      a: (
+        <>
+          <p><strong>Deadlock:</strong> Processes wait forever for resources. Necessary conditions:</p>
+          <ul className="list-disc ml-6 text-muted-foreground">
+            <li>Mutual Exclusion</li>
+            <li>Hold and Wait</li>
+            <li>No Preemption</li>
+            <li>Circular Wait</li>
+          </ul>
+        </>
+      ),
     },
     {
-      q: "What is Thrashing and how to prevent it?",
-      a: "Thrashing occurs when a system spends more time swapping pages than executing processes, causing severe performance degradation. Prevention: increase memory, reduce multiprogramming degree, use working set model, improve locality of reference, and implement proper page replacement algorithms."
+      q: "8. Methods for Handling Deadlocks",
+      a: (
+        <ul className="list-disc ml-6 text-muted-foreground">
+          <li>Prevention / Avoidance (Banker's Algorithm)</li>
+          <li>Detection & Recovery</li>
+          <li>Ignore (rare; OS reboot)</li>
+        </ul>
+      ),
     },
     {
-      q: "What are Semaphores and Mutex?",
-      a: "Semaphores are integer variables for process synchronization, supporting wait() and signal() operations. Binary semaphore (0/1) or counting semaphore (multiple resources). Mutex is a binary lock for mutual exclusion. Both prevent race conditions and ensure critical section protection."
+      q: "9. Banker's Algorithm",
+      a: (
+        <p>
+          Used in deadlock avoidance. Ensures system never allocates resources that could leave it in an unsafe state.
+        </p>
+      ),
     },
     {
-      q: "Explain the Producer-Consumer Problem.",
-      a: "Classic synchronization problem: producers create data, consumers use it, sharing a bounded buffer. Solutions must prevent race conditions, ensure buffer doesn't overflow or underflow, and allow concurrent operation. Solved using semaphores, monitors, or message passing."
+      q: "10. Memory Management",
+      a: (
+        <ul className="list-disc ml-6 text-muted-foreground">
+          <li><strong>Overlays:</strong> Load only required instructions/data into memory.</li>
+          <li><strong>Swapping:</strong> Move processes in/out of memory to optimize CPU use.</li>
+          <li>
+            <strong>Partitioning:</strong> Single or multiple fixed/variable partitions.
+          </li>
+          <li><strong>Paging:</strong> Fixed-size pages for non-contiguous allocation.</li>
+          <li><strong>Segmentation:</strong> Logical memory divided into segments.</li>
+        </ul>
+      ),
     },
     {
-      q: "What is Context Switching?",
-      a: "Context Switching is saving the state of a current process and loading the state of another. It involves saving registers, program counter, and memory mappings. High overhead but necessary for multitasking. Frequent switching reduces throughput."
+      q: "11. Page Replacement Algorithms (Important)",
+      a: (
+        <ul className="list-disc ml-6 text-muted-foreground">
+          <li><strong>FIFO:</strong> Replace oldest page first. May cause Belady's anomaly.</li>
+          <li><strong>Optimal:</strong> Replace page not needed for the longest future time. Perfect but theoretical.</li>
+          <li><strong>LRU:</strong> Replace least recently used page.</li>
+        </ul>
+      ),
     },
     {
-      q: "What is the difference between Internal and External Fragmentation?",
-      a: "Internal Fragmentation: wasted space within allocated memory blocks (fixed partitioning). External Fragmentation: free memory scattered in small blocks between allocated regions (variable partitioning). Solutions include paging (internal) and compaction (external)."
+      q: "12. Disk Scheduling",
+      a: (
+        <p>
+          OS schedules I/O requests to the disk efficiently using seek time, rotational latency, and transfer time.
+        </p>
+      ),
     },
     {
-      q: "What is a System Call and its types?",
-      a: "System Calls are interfaces between user programs and OS kernel. Types: Process Control (fork, exit), File Management (open, read, write), Device Management (request, release), Information Maintenance (time, date), and Communication (pipes, sockets)."
+      q: "13. Disk Scheduling Algorithms (Important)",
+      a: (
+        <ul className="list-disc ml-6 text-muted-foreground">
+          <li>FCFS</li>
+          <li>SSTF</li>
+          <li>SCAN / CSCAN / LOOK / CLOOK</li>
+        </ul>
+      ),
     },
     {
-      q: "Explain Inter-Process Communication (IPC) mechanisms.",
-      a: "IPC enables processes to communicate and synchronize. Methods include: Shared Memory (fast, requires synchronization), Message Passing (safe, slower), Pipes (unidirectional stream), Sockets (network communication), and Signals (notifications). Choice depends on requirements and architecture."
+      q: "Summary & Tips",
+      a: (
+        <ul className="list-disc ml-6 text-muted-foreground">
+          <li>Understand processes, threads, and scheduling clearly.</li>
+          <li>Deadlocks and memory management are key interview topics.</li>
+          <li>Practice algorithms (CPU & Disk scheduling, page replacement) step by step.</li>
+          <li>Use simple examples to remember concepts easily.</li>
+          <li>Revise important formulas: TAT, WT, response ratio.</li>
+        </ul>
+      ),
     },
-    {
-      q: "What is the difference between Preemptive and Non-Preemptive Scheduling?",
-      a: "Preemptive: OS can interrupt running processes (better responsiveness, complex). Non-Preemptive: processes run until completion or voluntary yield (simpler, may cause starvation). Preemptive used in modern OSs for better resource utilization and user experience."
-    }
   ];
 
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-      
+
       <main className="flex-1">
         {/* Header */}
-        <section className="bg-gradient-to-br from-purple-500 to-purple-600 py-16 text-white">
+        <section className="bg-[#059669] py-16 text-white">
           <div className="container px-4">
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm">
@@ -83,19 +191,19 @@ const OperatingSystem = () => {
               <h1 className="mb-4 text-4xl font-bold md:text-5xl">
                 Operating System
               </h1>
-              <p className="text-lg text-purple-50">
-                Master OS fundamentals with {questions.length} essential interview questions
+              <p className="text-lg text-purple-50 font-semibold">
+                Easy & Quick OS Guide for Students – Prepare for Interviews!
               </p>
             </div>
           </div>
         </section>
 
-        {/* Questions */}
+        {/* Content */}
         <section className="py-16">
           <div className="container px-4">
             <div className="mx-auto max-w-4xl space-y-6">
-              {questions.map((item, index) => (
-                <div 
+              {osContent.map((item, index) => (
+                <div
                   key={index}
                   className="group rounded-xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-card"
                 >
@@ -107,9 +215,7 @@ const OperatingSystem = () => {
                       {item.q}
                     </h3>
                   </div>
-                  <p className="ml-12 text-muted-foreground">
-                    {item.a}
-                  </p>
+                  <div className="ml-12 text-muted-foreground">{item.a}</div>
                 </div>
               ))}
             </div>
@@ -122,13 +228,11 @@ const OperatingSystem = () => {
             <div className="mx-auto flex max-w-4xl items-center justify-between">
               <Link to="/computer-networks">
                 <Button variant="outline" size="lg">
-                  ← Previous: Computer Networks
+                  ← Previous: CN
                 </Button>
               </Link>
               <Link to="/">
-                <Button size="lg">
-                  Back to Home
-                </Button>
+                <Button size="lg">Back to Home</Button>
               </Link>
             </div>
           </div>
