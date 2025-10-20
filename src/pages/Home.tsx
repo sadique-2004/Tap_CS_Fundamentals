@@ -32,8 +32,8 @@ const Home = () => {
         {/* Hero Section */}
 
         <section className="relative overflow-hidden bg-gradient-to-br from-background via-primary/5 to-background py-20">
-        {/* dotted background */}
-         <div className="absolute inset-0 bg-[radial-gradient(gray_1px,transparent_1px)] [background-size:20px_20px] opacity-50 pointer-events-none" />
+          {/* dotted background */}
+          <div className="absolute inset-0 bg-[radial-gradient(gray_1px,transparent_1px)] [background-size:20px_20px] opacity-50 pointer-events-none" />
 
           <div className="container px-4">
             <div className="mx-auto max-w-3xl text-center">
@@ -75,23 +75,24 @@ const Home = () => {
           </div>
         </section>
 
-         <div className="h-px bg-gradient-to-r from-transparent via-slate-400 to-transparent mb-8"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-slate-400 to-transparent mb-8"></div>
 
         {/* Books Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16">
-              {books.map((book) => (
-                <div
-                  className="w-40 sm:w-48 md:w-56 lg:w-60 xl:w-64 flex justify-center"
-                  key={book.href}
-                >
-                  <BookCard href={book.href} image={book.image} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+<section className="py-16 sm:py-20">
+  <div className="container mx-auto px-4">
+    <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+      {books.map((book) => (
+        <div
+          key={book.href}
+          className="w-40 sm:w-48 md:w-56 lg:w-60 xl:w-64 flex justify-center"
+        >
+          <BookCard href={book.href} image={book.image} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
         {/* Features Section */}
         <section className="bg-muted/30 py-16">
