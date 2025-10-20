@@ -488,7 +488,7 @@ const OperatingSystem = () => {
         <section className="border-t border-border/40 bg-muted/30 py-12">
           <div className="container px-4">
             <div className="mx-auto flex max-w-4xl items-center justify-between">
-              <Link to="/computer-networks">
+              <Link to="/cn">
                 <Button variant="outline" size="lg">
                   ← Previous: CN
                 </Button>

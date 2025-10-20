@@ -605,7 +605,7 @@ const ComputerNetworks = () => {
                   ← Previous: DBMS
                 </Button>
               </Link>
-              <Link to="/operating-system">
+              <Link to="/os">
                 <Button size="lg" className="gap-2">
                   Next: OS
                   <ArrowRight className="h-4 w-4" />

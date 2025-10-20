@@ -892,7 +892,7 @@ DELETE FROM Student WHERE RollNo = 1;`}
                   ← Back to Home
                 </Button>
               </Link>
-              <Link to="/computer-networks">
+              <Link to="/cn">
                 <Button size="lg" className="gap-2">
                   Next: CN
                   <ArrowRight className="h-4 w-4" />
