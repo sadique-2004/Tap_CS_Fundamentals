@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="container flex h-16 items-center justify-between px-4">
         <Link
           to="/"
-          className="items-center transition-transform hover:scale-105"
+          className="items-center transition-transform hover:scale-105 ml-4"
         >
           <img src={logo} alt="TAP Academy Logo" className="h-8" />
 
@@ -32,13 +32,13 @@ const Navbar = () => {
             to="/computer-networks"
             className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
           >
-            Computer Networks
+            CN
           </Link>
           <Link
             to="/operating-system"
-            className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+            className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary mr-24"
           >
-            Operating System
+            OS
           </Link>
         </div>
       </div>
