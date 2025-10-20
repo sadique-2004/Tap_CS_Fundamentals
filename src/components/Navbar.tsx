@@ -29,13 +29,13 @@ const Navbar = () => {
             DBMS
           </Link>
           <Link
-            to="/computer-networks"
+            to="/cn"
             className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
           >
             CN
           </Link>
           <Link
-            to="/operating-system"
+            to="/os"
             className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary mr-24"
           >
             OS

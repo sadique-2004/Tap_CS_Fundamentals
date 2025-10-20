@@ -20,8 +20,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/dbms" element={<DBMS />} />
-          <Route path="/computer-networks" element={<ComputerNetworks />} />
-          <Route path="/operating-system" element={<OperatingSystem />} />
+          <Route path="/cn" element={<ComputerNetworks />} />
+          <Route path="/os" element={<OperatingSystem />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

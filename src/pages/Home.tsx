@@ -16,11 +16,11 @@ const Home = () => {
     },
     {
       image: cn,
-      href: "/computer-networks",
+      href: "/cn",
     },
     {
       image: os,
-      href: "/operating-system",
+      href: "/os",
     },
   ];
 
@@ -78,21 +78,20 @@ const Home = () => {
         <div className="h-px bg-gradient-to-r from-transparent via-slate-400 to-transparent mb-8"></div>
 
         {/* Books Section */}
-<section className="py-16 sm:py-20">
-  <div className="container mx-auto px-4">
-    <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-12">
-      {books.map((book) => (
-        <div
-          key={book.href}
-          className="w-40 sm:w-48 md:w-56 lg:w-60 xl:w-64 flex justify-center"
-        >
-          <BookCard href={book.href} image={book.image} />
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
+        <section className="py-16 sm:py-20">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+              {books.map((book) => (
+                <div
+                  key={book.href}
+                  className="w-40 sm:w-48 md:w-56 lg:w-60 xl:w-64 flex justify-center"
+                >
+                  <BookCard href={book.href} image={book.image} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Features Section */}
         <section className="bg-muted/30 py-16">
@@ -106,7 +105,7 @@ const Home = () => {
                 {/* Questions Per Topic */}
                 <div className="text-center">
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                    <span className="text-2xl font-bold text-primary">15+</span>
+                    <span className="text-2xl font-bold text-primary">10+</span>
                   </div>
                   <h3 className="mb-2 font-semibold text-foreground text-gray-800">
                     Questions Per Topic

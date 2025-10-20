@@ -7,171 +7,433 @@ import { Button } from "@/components/ui/button";
 const OperatingSystem = () => {
   const osContent = [
     {
-      q: "1. OS Introduction",
-      a: (
-        <p>
-          An <strong>Operating System (OS)</strong> is an <strong>interface between user and hardware</strong>. 
-          It manages processes, CPU, memory, files, and resources. 
-          Its main goal is to provide an environment where programs can run <em>efficiently and conveniently</em>.
-        </p>
-      ),
-    },
-    {
-      q: "2. Types of Operating Systems",
-      a: (
-        <ul className="list-disc ml-6 text-muted-foreground">
-          <li>
-            <strong>Batch OS:</strong> Executes jobs one after another; CPU is assigned after previous job finishes.
-          </li>
-          <li>
-            <strong>Multiprogramming OS:</strong> Keeps multiple jobs in memory; CPU switches when one process waits for I/O.
-          </li>
-          <li>
-            <strong>Multitasking OS:</strong> Quickly switches CPU between tasks; allows user interaction with multiple programs.
-          </li>
-          <li>
-            <strong>Time-Sharing OS:</strong> Interacts with users via input devices (keyboard); provides prompt output.
-          </li>
-          <li>
-            <strong>Real-Time OS:</strong> Designed to complete tasks within strict deadlines; used in dedicated systems.
-          </li>
-        </ul>
-      ),
-    },
-    {
-      q: "3.What is Process ?",
-      a: (
-        <p>
-          A <strong>process</strong> is a program under execution. 
-          The <strong>Program Counter (PC)</strong> indicates the next instruction address.
-          Each process is represented by a <strong>Process Control Block (PCB)</strong>.
-        </p>
-      ),
-    },
-    {
-      q: "4. Process Scheduling",
-      a: (
-        <ul className="list-disc ml-6 text-muted-foreground">
-          <li><strong>Arrival Time:</strong> Time process enters the ready queue.</li>
-          <li><strong>Completion Time:</strong> Time process finishes execution.</li>
-          <li><strong>Burst Time:</strong> CPU time required by a process.</li>
-          <li>
-            <strong>Turn Around Time (TAT):</strong> Completion Time − Arrival Time
-          </li>
-          <li>
-            <strong>Waiting Time (WT):</strong> Turn Around Time − Burst Time
-          </li>
-        </ul>
-      ),
-    },
-    {
-      q: "5. Thread (Important)",
-      a: (
-        <p>
-          A <strong>thread</strong> is a lightweight process; a process can have multiple threads.
-          Threads share <strong>code, data, files, and signals</strong> but have their own <strong>PC, registers, and stack</strong>.
-          Use <code>fork()</code> to create child processes. Types: <strong>User Threads</strong> and <strong>Kernel Threads</strong>.
-        </p>
-      ),
-    },
-    {
-      q: "6. Scheduling Algorithms",
-      a: (
-        <ul className="list-disc ml-6 text-muted-foreground">
-          <li><strong>FCFS:</strong> First Come First Serve.</li>
-          <li><strong>SJF:</strong> Shortest Job First.</li>
-          <li><strong>SRTF:</strong> Shortest Remaining Time First (preemptive SJF).</li>
-          <li><strong>Round Robin (RR):</strong> Fixed time quantum cyclic scheduling.</li>
-          <li><strong>Priority Scheduling (Non Preemptive):</strong> Based on process priority.</li>
-          <li><strong>HRRN:</strong> Highest Response Ratio Next.</li>
-          <li><strong>MLQ & MLFQ:</strong> Multilevel Queue / Feedback Queue scheduling.</li>
-        </ul>
-      ),
-    },
-    {
-      q: "7. Deadlocks (Important)",
+      q: "OS Introduction",
       a: (
         <>
-          <p><strong>Deadlock:</strong> Processes wait forever for resources. Necessary conditions:</p>
+          <p>
+            An <strong>Operating System (OS)</strong> is an{" "}
+            <strong>interface between user and hardware</strong>. It manages
+            processes, CPU, memory, files, and resources. Its main goal is to
+            provide an environment where programs can run{" "}
+            <em>efficiently and conveniently</em>.
+          </p>
+          <br />
+          <p>
+            Think of an <strong>OS</strong> as the boss of your computer:
+          </p>
+          <br />
+
           <ul className="list-disc ml-6 text-muted-foreground">
-            <li>Mutual Exclusion</li>
-            <li>Hold and Wait</li>
-            <li>No Preemption</li>
-            <li>Circular Wait</li>
+            <li>
+              Talks to <strong>hardware</strong> 🤝
+            </li>
+            <li>
+              Talks to you, the <strong>user</strong> 🧑‍💻
+            </li>
+            <li>Keeps everything running smoothly without crashing</li>
+            <li>
+              Manages <code>CPU</code>, <code>memory</code>, <code>files</code>,
+              and <code>processes</code>
+            </li>
+          </ul>
+
+          <br />
+
+          <p>
+            <strong>One-liner for interviews:</strong> <br />
+            <code>
+              OS = user-hardware mediator + resource manager + process execution
+              coordinator
+            </code>
+          </p>
+        </>
+      ),
+    },
+    {
+      q: "Types of Operating Systems",
+      a: (
+        <table className="table-auto border border-border">
+          <thead>
+            <tr>
+              <th className="border px-4 py-2">Type</th>
+              <th className="border px-4 py-2">Quick Idea</th>
+              <th className="border px-4 py-2">Real-life Analogy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="border px-4 py-2">
+                <strong>Batch OS</strong>
+              </td>
+              <td className="border px-4 py-2">
+                Jobs queued, executed one by one
+              </td>
+              <td className="border px-4 py-2">Factory assembly line</td>
+            </tr>
+            <tr>
+              <td className="border px-4 py-2">
+                <strong>Multiprogramming OS</strong>
+              </td>
+              <td className="border px-4 py-2">
+                CPU never idle, switches when process waits
+              </td>
+              <td className="border px-4 py-2">Chef cooking multiple dishes</td>
+            </tr>
+            <tr>
+              <td className="border px-4 py-2">
+                <strong>Multitasking OS</strong>
+              </td>
+              <td className="border px-4 py-2">
+                User feels like multiple apps running together
+              </td>
+              <td className="border px-4 py-2">Juggling balls in air</td>
+            </tr>
+            <tr>
+              <td className="border px-4 py-2">
+                <strong>Time-Sharing OS</strong>
+              </td>
+              <td className="border px-4 py-2">
+                Quick switches, user interactive
+              </td>
+              <td className="border px-4 py-2">Multi-tab web browsing</td>
+            </tr>
+            <tr>
+              <td className="border px-4 py-2">
+                <strong>Real-Time OS</strong>
+              </td>
+              <td className="border px-4 py-2">
+                Deadline-focused, dedicated task
+              </td>
+              <td className="border px-4 py-2">Airplane autopilot</td>
+            </tr>
+          </tbody>
+        </table>
+      ),
+    },
+    {
+      q: "Processes & Threads (important)",
+      a: (
+        <>
+          <p>
+            <strong>Process:</strong> A running program (like a student doing
+            homework)
+          </p>
+          <br />
+          <p>
+            <strong>Thread:</strong> Lightweight part of a process (like writing
+            one answer while listening to music)
+          </p>
+          <br />
+          <p>
+            <strong>Important:</strong> <code>fork()</code> → creates child
+            processes → 2<sup>n</sup> - 1 children (mind-blowing!)
+          </p>
+          <br />
+          <p>
+            <strong>Thread types:</strong>
+          </p>
+          <ul className="list-disc ml-6 text-muted-foreground">
+            <li>
+              <strong>User threads</strong> → you manage
+            </li>
+            <li>
+              <strong>Kernel threads</strong> → OS manages
+            </li>
           </ul>
         </>
       ),
     },
     {
-      q: "8. Methods for Handling Deadlocks",
+      q: "Process Scheduling – CPU Loves to Juggle",
       a: (
-        <ul className="list-disc ml-6 text-muted-foreground">
-          <li>Prevention / Avoidance (Banker's Algorithm)</li>
-          <li>Detection & Recovery</li>
-          <li>Ignore (rare; OS reboot)</li>
-        </ul>
+        <>
+          <p>
+            <strong>Key metrics:</strong>
+          </p>
+          <ul className="list-disc ml-6 text-muted-foreground">
+            <li>
+              <strong>Arrival Time ⏱</strong> = when process shows up
+            </li>
+            <li>
+              <strong>Burst Time ⚡</strong> = CPU time needed
+            </li>
+            <li>
+              <strong>Completion Time ✅</strong> = finishes execution
+            </li>
+            <li>
+              <strong>Turnaround Time</strong> = Completion - Arrival
+            </li>
+            <li>
+              <strong>Waiting Time</strong> = Turnaround - Burst
+            </li>
+          </ul>
+          <br />
+
+          <p>
+            <strong>Algorithms:</strong>
+          </p>
+          <ul className="list-disc ml-6 text-muted-foreground">
+            <li>
+              <strong>FCFS</strong> – First come, first served
+            </li>
+            <li>
+              <strong>SJF</strong> – Shortest job first
+            </li>
+            <li>
+              <strong>SRTF</strong> – Preemptive SJF
+            </li>
+            <li>
+              <strong>RR</strong> – Time slice per process, cycle
+            </li>
+            <li>
+              <strong>Priority</strong> – Highest priority first
+            </li>
+            <li>
+              <strong>HRRN</strong> – Highest response ratio next
+            </li>
+            <li>
+              <strong>MLQ</strong> – Multiple queues by priority
+            </li>
+            <li>
+              <strong>MLFQ</strong> – Processes jump between queues
+            </li>
+          </ul>
+        </>
       ),
     },
     {
-      q: "9. Banker's Algorithm",
+      q: "Critical Section & Synchronization",
       a: (
-        <p>
-          Used in deadlock avoidance. Ensures system never allocates resources that could leave it in an unsafe state.
-        </p>
+        <>
+          <p>
+            <strong>Critical Section:</strong> Code using shared resources (like
+            checking out groceries)
+          </p>
+          <p>
+            <strong>Race Condition:</strong> Chaos if multiple processes access
+            it at once
+          </p>
+          <br />
+          <p>
+            <strong>Must-follow rules:</strong>
+          </p>
+          <ul className="list-disc ml-6 text-muted-foreground">
+            <li>
+              <strong>Mutual Exclusion</strong> – Only 1 at a time
+            </li>
+            <li>
+              <strong>Progress</strong> – Don’t delay selection
+            </li>
+            <li>
+              <strong>Bounded Waiting</strong> – Everyone eventually gets in
+            </li>
+          </ul>
+          <br />
+
+          <p>
+            <strong>Tools:</strong>
+          </p>
+          <ul className="list-disc ml-6 text-muted-foreground">
+            <li>
+              <strong>Semaphore:</strong> Red light/green light for processes
+            </li>
+            <li>
+              <strong>Mutex:</strong> Only one worker in a section
+            </li>
+          </ul>
+        </>
       ),
     },
     {
-      q: "10. Memory Management",
+      q: "Deadlocks – Don’t Get Stuck (important)",
+      a: (
+        <>
+          <p>
+            <strong>Deadlock:</strong> Processes wait forever for resources.{" "}
+            <br />
+            <strong>4 Must-have conditions:</strong> Mutual Exclusion + Hold &
+            Wait + No Preemption + Circular Wait
+          </p>
+          <br />
+
+          <p>
+            <strong>Handling:</strong>
+          </p>
+          <ul className="list-disc ml-6 text-muted-foreground">
+            <li>
+              <strong>Prevention/Avoidance</strong> – Stop it before it happens
+            </li>
+            <li>
+              <strong>Detection & Recovery</strong> – Let it happen, then fix
+            </li>
+            <li>
+              <strong>Ignore</strong> – Windows & Linux love this 🤷‍♂️
+            </li>
+          </ul>
+
+          <p>
+            <strong>Banker’s Algorithm:</strong> Avoid deadlock like a smart
+            banker refusing risky loans 💰
+          </p>
+        </>
+      ),
+    },
+    {
+      q: "Memory Management – Brain of the OS",
+      a: (
+        <>
+          <p>
+            <strong>Basic Techniques:</strong>
+          </p>
+          <ul className="list-disc ml-6 text-muted-foreground">
+            <li>
+              <strong>Overlays:</strong> Load only what you need
+            </li>
+            <li>
+              <strong>Swapping:</strong> Multiprogramming → swap processes
+              in/out
+            </li>
+            <li>
+              <strong>Partitions:</strong> Memory slices
+            </li>
+            <ul>
+              <li> Fixed / Variable</li>
+              <li>Best Fit / Worst Fit / First Fit</li>
+            </ul>
+          </ul>
+
+          <br />
+          <p>
+            <strong>Advanced Techniques:</strong>
+          </p>
+          <ul className="list-disc ml-6 text-muted-foreground">
+            <li>
+              <strong>Paging:</strong> Memory = frames, program = pages → no
+              fragmentation
+            </li>
+            <li>
+              <strong>Segmentation:</strong> Logical view for humans
+            </li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      q: "Page Replacement Algorithms (Important)",
       a: (
         <ul className="list-disc ml-6 text-muted-foreground">
-          <li><strong>Overlays:</strong> Load only required instructions/data into memory.</li>
-          <li><strong>Swapping:</strong> Move processes in/out of memory to optimize CPU use.</li>
           <li>
-            <strong>Partitioning:</strong> Single or multiple fixed/variable partitions.
+            <strong>FIFO:</strong> Replace oldest page first. May cause Belady's
+            anomaly.
           </li>
-          <li><strong>Paging:</strong> Fixed-size pages for non-contiguous allocation.</li>
-          <li><strong>Segmentation:</strong> Logical memory divided into segments.</li>
+          <li>
+            <strong>Optimal:</strong> Replace page not needed for the longest
+            future time. Perfect but theoretical.
+          </li>
+          <li>
+            <strong>LRU:</strong> Replace least recently used page.
+          </li>
         </ul>
       ),
     },
     {
-      q: "11. Page Replacement Algorithms (Important)",
+      q: "Disk Scheduling – Speed Up I/O (important)",
       a: (
-        <ul className="list-disc ml-6 text-muted-foreground">
-          <li><strong>FIFO:</strong> Replace oldest page first. May cause Belady's anomaly.</li>
-          <li><strong>Optimal:</strong> Replace page not needed for the longest future time. Perfect but theoretical.</li>
-          <li><strong>LRU:</strong> Replace least recently used page.</li>
-        </ul>
+        <>
+          <p>
+            OS schedules I/O requests to the disk efficiently using seek time,
+            rotational latency, and transfer time.
+          </p>
+          <br />
+          <p>
+            <strong>Key Metrics:</strong>
+          </p>
+          <ul className="list-disc ml-6 text-muted-foreground">
+            <li>
+              <strong>Seek Time</strong>: Move arm to track
+            </li>
+            <li>
+              <strong>Rotational Latency</strong>: Wait for sector
+            </li>
+            <li>
+              <strong>Transfer Time</strong>: Data transfer
+            </li>
+            <li>
+              <strong>Access Time</strong> = Seek + Latency + Transfer
+            </li>
+          </ul>
+          <br />
+          <p>
+            <strong>Algorithms:</strong>
+          </p>
+          <ul className="list-disc ml-6 text-muted-foreground">
+            <li>
+              <strong>FCFS</strong> → first come
+            </li>
+            <li>
+              <strong>SSTF</strong> → shortest seek first
+            </li>
+            <li>
+              <strong>SCAN</strong> → elevator
+            </li>
+            <li>
+              <strong>C-SCAN</strong> → circular elevator
+            </li>
+            <li>
+              <strong>LOOK</strong> → stops at last request
+            </li>
+            <li>
+              <strong>C-LOOK</strong> → circular LOOK
+            </li>
+          </ul>
+        </>
       ),
     },
     {
-      q: "12. Disk Scheduling",
+      q: "Banker's Algorithm",
       a: (
         <p>
-          OS schedules I/O requests to the disk efficiently using seek time, rotational latency, and transfer time.
+          Used in deadlock avoidance. Ensures system never allocates resources
+          that could leave it in an unsafe state.
         </p>
-      ),
-    },
-    {
-      q: "13. Disk Scheduling Algorithms (Important)",
-      a: (
-        <ul className="list-disc ml-6 text-muted-foreground">
-          <li>FCFS</li>
-          <li>SSTF</li>
-          <li>SCAN / CSCAN / LOOK / CLOOK</li>
-        </ul>
       ),
     },
     {
       q: "Summary & Tips",
       a: (
         <ul className="list-disc ml-6 text-muted-foreground">
-          <li>Understand processes, threads, and scheduling clearly.</li>
-          <li>Deadlocks and memory management are key interview topics.</li>
-          <li>Practice algorithms (CPU & Disk scheduling, page replacement) step by step.</li>
+          <li>
+            <strong>Deadlocks</strong> and <strong>memory management</strong>{" "}
+            are key interview topics.
+          </li>
+          <li>
+            Practice <strong>algorithms</strong> step by step (CPU & Disk
+            scheduling, page replacement).
+          </li>
           <li>Use simple examples to remember concepts easily.</li>
-          <li>Revise important formulas: TAT, WT, response ratio.</li>
+          <li>
+            Revise important formulas: <strong>TAT</strong>, <strong>WT</strong>
+            , response ratio.
+          </li>
         </ul>
+      ),
+    },
+    {
+      q: "9. Quick Tip for Interviews",
+      a: (
+        <>
+          <ul className="list-disc ml-6 text-muted-foreground">
+            <li>
+              Draw mini diagrams for <strong>process states</strong>,{" "}
+              <strong>scheduling</strong>, <strong>paging</strong>, and{" "}
+              <strong>deadlocks</strong>.
+            </li>
+            <li>
+              Memorize <strong>1-line definitions</strong> +{" "}
+              <strong>real-life analogies</strong> → impress the interviewer.
+            </li>
+          </ul>
+        </>
       ),
     },
   ];
