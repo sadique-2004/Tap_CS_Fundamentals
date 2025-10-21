@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Cpu } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -5,6 +6,12 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 
 const OperatingSystem = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleQuestion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   const osContent = [
     {
       q: "OS Introduction",
@@ -461,7 +468,7 @@ const OperatingSystem = () => {
         </section>
 
         {/* Content */}
-        <section className="py-16">
+        {/* <section className="py-16">
           <div className="container px-4">
             <div className="mx-auto max-w-4xl space-y-6">
               {osContent.map((item, index) => (
@@ -478,6 +485,39 @@ const OperatingSystem = () => {
                     </h3>
                   </div>
                   <div className="ml-12 text-muted-foreground">{item.a}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section> */}
+
+        <section className="py-16">
+          <div className="container px-4">
+            <div className="mx-auto max-w-4xl space-y-6">
+              {osContent.map((item, index) => (
+                <div
+                  key={index}
+                  className="rounded-xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-card"
+                >
+                  {/* Question Header */}
+                  <div
+                    onClick={() => toggleQuestion(index)}
+                    className="mb-3 flex cursor-pointer items-start gap-4"
+                  >
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary">
+                      {index + 1}
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground">
+                      {item.q}
+                    </h3>
+                  </div>
+
+                  {/* Answer - show only if active */}
+                  {openIndex === index && (
+                    <div className="ml-12 text-muted-foreground animate-fadeIn">
+                      {item.a}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
