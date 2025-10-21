@@ -108,7 +108,7 @@ const Home = () => {
                     <span className="text-2xl font-bold text-primary">15+</span>
                   </div>
                   <h3 className="mb-2 font-semibold text-foreground text-gray-800">
-                    Questions Per Topic
+                    Questions Per Subject's
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     Only the <b>most important interview questions</b> from
