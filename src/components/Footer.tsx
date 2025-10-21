@@ -17,7 +17,8 @@ export default function Footer() {
           <div className="md:col-span-1  flex-col gap-3 text-center md:text-left flex items-center">
             <img src={logo} alt="TAP Academy Logo" className=" w-24 " />
             <p className="text-xs text-slate-400 mt-1">
-              <span className="text-blue-400">Gamify</span> Learning · <span className="text-blue-400">Simplify</span> Employment
+              <span className="text-blue-400">Gamify</span> Learning ·{" "}
+              <span className="text-blue-400">Simplify</span> Employment
             </p>
             <div className="flex flex-row gap-3 mt-4">
               <a
@@ -51,8 +52,8 @@ export default function Footer() {
           {/* Motivational Quote */}
           <div className="md:col-span-2 flex flex-col justify-center items-center text-center px-4">
             <p className="text-sm md:text-base text-gray-300 italic">
-              Master CS Fundamentals today, crack interviews tomorrow. Everything
-              that you learn is a step closer to your dream job!
+              Master CS Fundamentals today, crack interviews tomorrow.
+              Everything that you learn is a step closer to your dream job!
             </p>
             <p className="text-xs text-gray-400 mt-2">
               Remember: CS Fundamentals are your superpowers!
@@ -60,26 +61,22 @@ export default function Footer() {
           </div>
 
           {/* Personal Promotion */}
-          <div className="md:col-span-1 flex flex-col justify-center items-center md:items-end gap-3 text-right ">
-            <div className="p-4 bg-gradient-to-br from-blue-800/20 to-cyan-800/20 rounded-xl border border-blue-500/30 backdrop-blur-sm shadow-lg hover:scale-105 transition-transform duration-300 text-center mr-3">    
-              <p className="text-sm font-semibold text-white">
-                <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  Md Sadique
-                </span>
+          <div className="flex flex-col items-center  gap-3 text-center pb-2">
+            <div className="mr-3">
+              <p className="text-base font-bold text-white tracking-wide">
+                MD SADIQUE
               </p>
-              <p className="text-xs text-gray-300 mt-1 tracking-wide">
-                Technical Trainer & SDE
-              </p>
-              <p className="text-xs text-blue-300 mt-0.5 uppercase tracking-wider font-medium">
-                TAP Academy
+              <span className="font-light text-blue-400">{`SDE & Technical Trainer`}</span>
+            
+              <p className="text-xs text-gray-400 italic">
+                Tech Evangelist • Code Whisperer • Lifetime Learner
               </p>
             </div>
-
             <a
               href="https://www.linkedin.com/in/mdsadique5"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors duration-200 text-sm font-medium group"
+              className="inline-flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white rounded-lg transition duration-200 text-xs font-semibold group shadow-lg"
             >
               <FaLinkedin className="w-4 h-4" />
               Connect on LinkedIn
@@ -91,9 +88,14 @@ export default function Footer() {
         <div className="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent mb-8"></div>
 
         {/* Bottom Section */}
-        <div className="flex justify-center items-center gap-2 text-sm text-slate-400">
-          <span>© {currentYear} TAP Academy Ed-Tech Private Limited</span>
-          <span className="text-slate-600">|</span>
+        <div className="flex flex-col md:flex-row  justify-center items-center gap-2 text-sm text-slate-400">
+          <span>© {currentYear} TAP Academy</span>
+          <span className="text-slate-600 hidden md:inline">|</span>
+          <span>
+            Built with <span className="text-red-400 font-bold">♥</span> by
+            Sadique <span className="text-blue-400">@Trainer & SDE</span>
+          </span>
+          <span className="text-slate-600 hidden md:inline">|</span>
           <span>All rights reserved.</span>
         </div>
       </div>
